@@ -63,6 +63,20 @@ app.use((req, res, next) => {
   next();
 });
 
+// Add a simple health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+// Add a root endpoint that redirects to the frontend
+app.get('/', (req, res) => {
+  res.redirect('/hr/dashboard');
+});
+
 (async () => {
   // Add memory monitoring
   const logMemoryUsage = () => {

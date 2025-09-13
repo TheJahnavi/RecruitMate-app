@@ -3,9 +3,10 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
   ? '' // In production, API is served from the same origin
   : 'http://localhost:3001'; // In development, API is on port 3001
 
+console.log('API Config - NODE_ENV:', process.env.NODE_ENV);
+console.log('API Config - API_BASE_URL:', API_BASE_URL);
+
 export function getApiUrl(path: string): string {
-  console.log('API Config - NODE_ENV:', process.env.NODE_ENV);
-  console.log('API Config - API_BASE_URL:', API_BASE_URL);
   console.log('API Config - Input path:', path);
   
   // If path is already an absolute URL, return it as is

@@ -65,6 +65,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Setup session middleware
   setupSession(app);
 
+  // Health check endpoint for Vercel
+  app.get('/api/health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || 'development',
+      message: 'SmartHire API is running'
+    });
+  });
+
   // Auth routes
   app.post('/api/auth/signup', async (req, res) => {
     try {

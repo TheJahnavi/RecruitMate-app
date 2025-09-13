@@ -12,8 +12,16 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: path.resolve(__dirname, "../dist/public"),
+    outDir: path.resolve(__dirname, "./dist"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-toast'],
+        }
+      }
+    }
   },
   server: {
     port: parseInt(process.env.VITE_PORT || '5173', 10),
@@ -23,4 +31,6 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  // Add base path for Vercel deployments
+  base: '/',
 });

@@ -26,7 +26,13 @@ function Router() {
   const [, setLocation] = useLocation();
   const [initialCheckDone, setInitialCheckDone] = useState(false);
 
-  console.log('App Router - Render started', { isAuthenticated, user, isLoading, initialCheckDone });
+  console.log('App Router - Render started', { 
+    isAuthenticated, 
+    user, 
+    isLoading, 
+    initialCheckDone,
+    location: window.location.href
+  });
 
   // Handle login
   const handleLogin = (role: string) => {
@@ -227,8 +233,8 @@ function Router() {
       <Route path="/hr/settings" component={() => (
         <Layout>
           <div className="min-h-screen bg-background p-8">
-            <h1 className="text-2xl font-bold text-foreground">HR Settings</h1>
-            <p className="text-muted-foreground">Settings page for HR users</p>
+            <h1 className="text-2xl font-bold text-foreground mb-4">HR Settings</h1>
+            <p className="text-muted-foreground mb-4">Settings page for HR users</p>
           </div>
         </Layout>
       )} />
