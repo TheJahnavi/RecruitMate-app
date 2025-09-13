@@ -1,0 +1,52 @@
+Sarah Johnson
+sarah.johnson@example.com
+https://linkedin.com/in/sarahjohnson
+
+PROFESSIONAL SUMMARY
+Senior full-stack developer specializing in React, Node.js, and cloud technologies. Extensive experience building scalable web applications with a focus on performance optimization and security. Strong background in leading development teams and implementing CI/CD pipelines.
+
+TECHNICAL SKILLS
+• Programming Languages: JavaScript, TypeScript, Python, Java
+• Frontend: React, Vue.js, Angular, Redux, CSS-in-JS
+• Backend: Node.js, Express, Python Flask, Java Spring Boot
+• Databases: PostgreSQL, MongoDB, Redis
+• Cloud & DevOps: AWS, Docker, Kubernetes, Jenkins, Terraform
+• Testing: Jest, Mocha, Cypress, Selenium
+
+PROFESSIONAL EXPERIENCE
+Lead Full-Stack Developer | InnovateTech | Mar 2021 - Present
+• Architect and lead development of SaaS platform serving 10,000+ users
+• Implement microservices architecture using Node.js and Python
+• Lead team of 5 developers using Agile methodologies
+• Design and maintain CI/CD pipelines with Jenkins and GitHub Actions
+• Optimize database queries, reducing response times by 60%
+
+Full-Stack Developer | Digital Solutions Co. | Aug 2019 - Feb 2021
+• Developed CRM application with React frontend and Node.js backend
+• Implemented RESTful APIs and GraphQL endpoints
+• Integrated third-party services including payment processors and email providers
+• Created automated testing suite, increasing code coverage to 90%
+• Participated in code reviews and mentored junior developers
+
+SOFTWARE ENGINEER | StartupXYZ | Jan 2018 - Jul 2019
+• Built MVP for social networking platform using React and Firebase
+• Implemented user authentication and authorization systems
+• Developed responsive UI components for mobile and desktop
+• Collaborated with product team to define requirements and timelines
+
+PROJECT EXPERIENCE
+Customer Relationship Management System | React, Node.js, PostgreSQL | 2020
+• Developed comprehensive CRM with contact management, task tracking, and reporting
+• Implemented role-based access control and data encryption
+• Created real-time notifications using WebSockets
+• Built analytics dashboard with charting libraries
+
+E-Commerce API | Node.js, MongoDB, Redis | 2019
+• Designed and implemented RESTful API for e-commerce platform
+• Implemented caching with Redis, improving response times by 50%
+• Created automated deployment scripts using Docker and Kubernetes
+• Integrated payment processing with Stripe and PayPal
+
+EDUCATION
+M.S. in Software Engineering | Tech University | 2016-2018
+B.S. in Computer Science | State College | 2012-2016

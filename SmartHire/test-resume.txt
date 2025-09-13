@@ -1,0 +1,23 @@
+John Doe
+Software Engineer
+
+Email: john.doe@example.com
+
+Summary:
+Experienced software engineer with 5 years of experience in web development.
+Skilled in JavaScript, React, Node.js, and Python.
+
+Experience:
+Senior Developer at Tech Corp (2020-Present)
+- Developed web applications using React and Node.js
+- Led a team of 3 developers
+- Implemented CI/CD pipelines
+
+Projects:
+E-commerce Platform (2021)
+- Built with React, Node.js, and MongoDB
+- Implemented payment processing
+- Skills: React, Node.js, MongoDB, Payment APIs
+
+Education:
+B.S. Computer Science, University of Technology (2015-2019)

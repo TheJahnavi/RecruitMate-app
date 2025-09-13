@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHire Job Functionality Test Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #007acc;
+            margin-top: 30px;
+        }
+        .step {
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #f0fff0;
+            border-left: 4px solid #28a745;
+        }
+        .warning {
+            background-color: #fff8f0;
+            border-left: 4px solid #ffc107;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .button:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SmartHire Job Functionality Test Instructions</h1>
+        
+        <p>Follow these steps to test the job management functionality in SmartHire:</p>
+        
+        <h2>Prerequisites</h2>
+        <div class="step">
+            <p>Ensure both servers are running:</p>
+            <ul>
+                <li>Backend server on <code>http://localhost:3001</code></li>
+                <li>Frontend server on <code>http://localhost:5173</code></li>
+            </ul>
+        </div>
+        
+        <h2>Test 1: Accessing the Jobs Page</h2>
+        <div class="step">
+            <p>1. Click the button below to open the application:</p>
+            <a href="http://localhost:5173/hr/jobs" class="button" target="_blank">Open Jobs Page</a>
+            <p>2. If prompted, log in with one of the demo HR accounts:</p>
+            <ul>
+                <li>Email: <code>hr1@techcorp.com</code> Password: <code>password</code></li>
+                <li>Email: <code>hr2@techcorp.com</code> Password: <code>password</code></li>
+                <li>Email: <code>hr3@techcorp.com</code> Password: <code>password</code></li>
+            </ul>
+            <p>3. Verify you can see the Job Management dashboard with stats cards and job table</p>
+        </div>
+        
+        <h2>Test 2: Adding a New Job</h2>
+        <div class="step">
+            <p>1. Click the <strong>"Add New Job"</strong> button in the top right corner</p>
+            <p>2. Fill in the job details:</p>
+            <ul>
+                <li><strong>Job Title:</strong> Frontend Developer</li>
+                <li><strong>Job Description:</strong> Develop responsive web applications</li>
+                <li><strong>Experience Required:</strong> 2-4 years</li>
+                <li><strong>Skills:</strong> Add "React", "JavaScript", "CSS"</li>
+                <li><strong>Number of Positions:</strong> 2</li>
+                <li><strong>Status:</strong> Active</li>
+                <li><strong>Additional Notes:</strong> Urgent hiring</li>
+            </ul>
+            <p>3. Click <strong>"Create Job"</strong></p>
+            <p>4. Verify a success message appears and the new job shows in the table</p>
+        </div>
+        
+        <h2>Test 3: Editing a Job</h2>
+        <div class="step">
+            <p>1. Find the "Frontend Developer" job in the table</p>
+            <p>2. Click the <strong>Edit</strong> (pencil) icon for that job</p>
+            <p>3. Verify the modal opens with pre-filled data</p>
+            <p>4. Make these changes:</p>
+            <ul>
+                <li>Change <strong>Job Title</strong> to: Senior Frontend Developer</li>
+                <li>Change <strong>Experience Required</strong> to: 4-6 years</li>
+                <li>Add a new skill: TypeScript</li>
+            </ul>
+            <p>5. Click <strong>"Update Job"</strong></p>
+            <p>6. Verify a success message appears and the job details are updated</p>
+        </div>
+        
+        <h2>Test 4: Deleting a Job</h2>
+        <div class="step">
+            <p>1. Find the "Senior Frontend Developer" job in the table</p>
+            <p>2. Click the <strong>Delete</strong> (trash) icon for that job</p>
+            <p>3. Confirm deletion in the prompt</p>
+            <p>4. Verify a success message appears and the job is removed from the table</p>
+        </div>
+        
+        <h2>Expected Results</h2>
+        <div class="step success">
+            <p>If all tests pass, the job functionality is working correctly:</p>
+            <ul>
+                <li>Add New Job creates records in the database</li>
+                <li>Edit Job pre-fills data correctly and updates records</li>
+                <li>No authentication redirects to "/api/login" occur</li>
+                <li>All operations show appropriate success/error messages</li>
+            </ul>
+        </div>
+        
+        <h2>Troubleshooting</h2>
+        <div class="step warning">
+            <p>If you encounter issues:</p>
+            <ul>
+                <li>Check browser console for errors (F12)</li>
+                <li>Verify both servers are running on correct ports</li>
+                <li>Check that authentication middleware is applied to routes</li>
+                <li>Ensure API base URL is configured correctly</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
