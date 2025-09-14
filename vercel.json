@@ -1,18 +1,14 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "SmartHire/client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/SmartHire/client/dist/index.html"
+      "dest": "/index.html"
     }
   ]
 }
