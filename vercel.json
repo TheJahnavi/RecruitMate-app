@@ -4,7 +4,7 @@
       "src": "SmartHire/client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "cd SmartHire/client && npm install && npm run build",
+        "buildCommand": "cd SmartHire/client && npm run build",
         "outputDirectory": "SmartHire/client/dist"
       }
     }
