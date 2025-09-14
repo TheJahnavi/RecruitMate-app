@@ -1,11 +1,11 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "SmartHire/client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "buildCommand": "npm install && npm run build",
+        "outputDirectory": "dist"
       }
     }
   ],
