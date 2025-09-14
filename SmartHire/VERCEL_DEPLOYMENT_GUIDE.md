@@ -1,84 +1,122 @@
-# Vercel Deployment Guide for SmartHire
+# Vercel Deployment Guide for SmartHire Application
 
-## Prerequisites
-1. Ensure all code changes are committed to your repository
-2. Verify that the following files exist and are properly configured:
-   - `vercel.json` (in root directory)
-   - `client/package.json` (with all dependencies)
-   - `client/vite.config.ts` (with correct base path)
-   - `client/.env.production` (with production environment variables)
+## Current Configuration Summary
 
-## Vercel Project Configuration
+### Project Structure
+```
+SmartHire/
+├── client/                 # Frontend React application
+│   ├── package.json        # Client dependencies
+│   ├── vite.config.ts      # Vite configuration
+│   ├── postcss.config.js   # PostCSS configuration
+│   ├── tailwind.config.ts  # Tailwind CSS configuration
+│   └── dist/               # Build output directory
+├── server/                 # Backend Node.js server
+│   └── index.ts            # Server entry point
+├── package.json            # Root package.json with build scripts
+└── vercel.json             # Vercel deployment configuration
+```
 
-### 1. Project Settings
-- **Build & Development Settings**:
-  - Framework Preset: `Other`
-  - Build Command: `cd client && npm install && npm run build`
-  - Output Directory: `client/dist`
-  - Install Command: `npm install`
+### Key Configuration Files
 
-### 2. Environment Variables
-Add these environment variables in your Vercel project settings:
+#### 1. Root package.json
+- Contains the `vercel-build` script: `cd client && npm install && npm run build`
+- Defines all backend dependencies
+- Specifies Node.js engine requirements
+
+#### 2. client/package.json
+- Contains frontend dependencies
+- Defines client build scripts (`vite build`)
+
+#### 3. vercel.json
+- Configured for monorepo structure
+- Separate builds for client and server
+- Proper routing for API endpoints and static files
+
+#### 4. client/vite.config.ts
+- Configured with proper base path for Vercel deployment
+- Output directory set to `client/dist`
+
+## Deployment Steps
+
+### 1. Commit and Push Changes
+```bash
+git add .
+git commit -m "Fix Vercel deployment configuration"
+git push origin master
+```
+
+### 2. Trigger Deployment on Vercel
+- Push to GitHub will automatically trigger a new deployment
+- Or manually deploy through Vercel dashboard
+
+### 3. Monitor Build Process
+- Check Vercel logs for successful build
+- Look for successful completion of client build process
+
+## Vercel Project Settings
+
+### Build & Development Settings
+- **Framework Preset**: `Other`
+- **Build Command**: Leave empty (will use vercel-build script)
+- **Output Directory**: Leave empty (configured in vercel.json)
+- **Install Command**: Leave as default
+
+### Root Directory
+- Set to `/` (project root)
+
+### Environment Variables
+Ensure these environment variables are set in Vercel project settings:
 ```
 NODE_ENV=production
+DATABASE_URL=your_production_database_url
+SESSION_SECRET=your_production_session_secret
 ```
 
-### 3. Root Directory
-Set the root directory to `/` (project root), NOT `/client`
+## Expected Build Process
 
-## Common Issues and Solutions
-
-### Blank Page Issues
-1. **Check Console Errors**: Open browser dev tools and check for JavaScript errors
-2. **Verify Build Output**: Ensure the build process completes successfully
-3. **Check Routing**: Verify that `vercel.json` routes are correctly configured
-4. **Verify Base Path**: Ensure `vite.config.ts` has the correct base path (`/`)
-
-### API Not Working
-1. **Check API Routes**: Ensure all API routes in `vercel.json` point to the correct server entry point
-2. **Verify Server Build**: Ensure the server code builds correctly
-3. **Check Environment Variables**: Ensure database and session variables are set
-
-## Testing Deployment Locally
-
-Before deploying to Vercel, test the build process locally:
-
-```bash
-# From project root
-cd client
-npm install
-npm run build
-```
-
-Check that the `dist` folder is created with all necessary files.
-
-## Post-Deployment Checklist
-
-1. Visit the deployed URL and verify the application loads
-2. Test login functionality with demo credentials
-3. Test job creation and editing features
-4. Test candidate management features
-5. Test file upload functionality
-6. Verify all API endpoints work correctly
+1. Vercel clones the repository
+2. Runs the `vercel-build` script from root package.json
+3. Navigates to client directory and installs dependencies
+4. Builds the React frontend with Vite
+5. Outputs static files to `client/dist`
+6. Configures routing for API endpoints to server
+7. Serves static files from `client/dist`
 
 ## Troubleshooting
 
-### If Still Getting Blank Page:
-1. Check Vercel build logs for errors
-2. Verify that `index.html` is in the correct location in the build output
-3. Check browser console for JavaScript errors
-4. Ensure all required environment variables are set in Vercel
-5. Verify that the `vercel.json` configuration is correct
+### If Build Still Fails
+1. Verify all package.json files exist and are valid JSON
+2. Check that client directory contains all necessary files
+3. Ensure Vercel project settings match the configuration above
+4. Check Vercel logs for specific error messages
 
-### If API Endpoints Return 404:
-1. Check that server routes are correctly configured in `vercel.json`
-2. Verify that the server entry point (`server/index.ts`) exists
-3. Check Vercel function logs for server errors
+### If Application Shows Blank Page
+1. Check browser console for JavaScript errors
+2. Verify `client/dist` contains `index.html` and static assets
+3. Confirm routing in vercel.json is correct
+4. Ensure vite.config.ts has correct base path
 
-## Support
+### Common Issues and Solutions
+- **Missing dependencies**: Ensure all dependencies are in package.json
+- **Path issues**: Check that all file paths in configs are correct
+- **Environment variables**: Verify all required env vars are set in Vercel
+- **Build script errors**: Test build locally with `npm run build`
 
-If you continue to experience issues, please provide:
-1. Vercel build logs
-2. Browser console errors
-3. Network tab information showing failed requests
-4. Screenshots of the Vercel project settings
+## Local Testing
+
+Before deploying, test the build process locally:
+```bash
+# Test client build
+cd client
+npm install
+npm run build
+
+# Check output
+ls -la dist/
+
+# Return to root
+cd ..
+```
+
+This should complete without errors and create the dist directory with built assets.
