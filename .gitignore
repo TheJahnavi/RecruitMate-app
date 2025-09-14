@@ -1,8 +1,56 @@
+# Dependencies
 node_modules
-node_modules
-node_modules
-node_modules
-node_modules
-node_modules
-node_modules
-node_modules
+
+# Build outputs
+dist
+build
+.out
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Local development files
+.local
+*.local
+.replit
+*.replit
+
+# Database
+*.sqlite
+*.db
+
+# Uploads
+uploads/
+
+# Runtime files
+*.log
+*.pid
+*.pid.lock
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Icon?
+*[Tt]humbs.db
+
+# Vercel
+.vercel

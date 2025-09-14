@@ -1,17 +1,17 @@
 {
   "builds": [
     {
-      "src": "SmartHire/client/package.json",
+      "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/SmartHire/client/dist/index.html"
+      "source": "/(.*)",
+      "destination": "/client/dist/index.html"
     }
   ]
 }
