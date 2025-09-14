@@ -14,7 +14,12 @@
     "db:push": "drizzle-kit push",
     "vercel-build": "cd SmartHire/client && npm install && npm run build"
   },
-  "keywords": ["recruitment", "ai", "hiring", "job-matching"],
+  "keywords": [
+    "recruitment",
+    "ai",
+    "hiring",
+    "job-matching"
+  ],
   "author": "SmartHire Team",
   "license": "MIT",
   "engines": {
@@ -89,6 +94,7 @@
     "react-icons": "^5.4.0",
     "react-resizable-panels": "^2.1.7",
     "recharts": "^2.15.2",
+    "smarthire-app": "file:",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "tw-animate-css": "^1.2.5",
