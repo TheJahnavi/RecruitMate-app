@@ -16,5 +16,5 @@ if (!rootElement) {
   createRoot(rootElement).render(<App />);
 }
 
-// Path structure fix applied
-console.log('Vercel path structure fix applied - pointing to SmartHire/client');
+// Duplicate configuration resolution applied
+console.log('Vercel duplicate configuration resolution applied');
