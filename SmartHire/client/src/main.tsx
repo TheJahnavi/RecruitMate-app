@@ -16,5 +16,5 @@ if (!rootElement) {
   createRoot(rootElement).render(<App />);
 }
 
-// Small change to trigger deployment - Vercel configuration confirmation
-console.log('Vercel configuration confirmed and applied');
+// Final deployment trigger with verified configuration
+console.log('Final Vercel deployment configuration applied');
