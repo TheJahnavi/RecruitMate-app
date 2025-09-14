@@ -2,17 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "client/dist"
       }
     },
     {
-      "src": "../server/index.ts",
+      "src": "server/index.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["dist/**"]
+        "includeFiles": ["client/dist/**"]
       }
     }
   ],
@@ -27,12 +27,12 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/index.html"
+      "dest": "/client/dist/index.html"
     }
   ],
   "env": {
     "NODE_ENV": "production"
   },
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist"
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist"
 }
