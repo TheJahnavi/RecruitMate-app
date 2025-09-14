@@ -16,5 +16,5 @@ if (!rootElement) {
   createRoot(rootElement).render(<App />);
 }
 
-// Small change to trigger deployment
-console.log('Vercel deployment fix applied');
+// Small change to trigger deployment - Vercel routing fix v2.0
+console.log('Vercel deployment fix v2.0 applied');
