@@ -30,7 +30,7 @@ SmartHire/
 
 #### 3. vercel.json
 - Configured for monorepo structure
-- Uses `@vercel/static-build` for client and `@vercel/node` for server
+- Uses `@vercel/static-build` for client with correct distDir configuration
 - Proper routing for API endpoints and static files
 
 #### 4. client/vite.config.ts
@@ -81,7 +81,7 @@ SESSION_SECRET=your_production_session_secret
 4. Builds the React frontend with Vite
 5. Outputs static files to `client/dist`
 6. Configures routing for API endpoints to server
-7. Serves static files from `client/dist`
+7. Serves static files from `dist` directory
 
 ## Troubleshooting
 
@@ -124,4 +124,9 @@ This should complete without errors and create the dist directory with built ass
 
 ## Recent Changes (September 13, 2025)
 
-Updated vercel.json to use `@vercel/static-build` for the client build process instead of `@vercel/node`. This change should resolve the 404 NOT_FOUND error by properly serving static files from the client/dist directory.
+Updated vercel.json to use correct path configuration:
+1. Changed distDir from "client/dist" to "dist" 
+2. Updated routes to serve files from "/dist/$1" instead of "/client/dist/$1"
+3. Simplified builds configuration to focus on static file serving
+
+This change addresses the 404 NOT_FOUND error by ensuring Vercel correctly serves the built static files.
