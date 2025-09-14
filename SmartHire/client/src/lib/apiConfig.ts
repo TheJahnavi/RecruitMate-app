@@ -15,15 +15,23 @@ export function getApiUrl(path: string): string {
     return path;
   }
   
-  // If path is already an absolute path, prepend the base URL
-  if (path.startsWith('/')) {
+  // For API routes, we want to make sure they're properly handled
+  if (path.startsWith('/api/')) {
+    // In production on Vercel, API routes are handled by the serverless functions
+    // We don't need to prepend anything for API routes in production
+    if (process.env.NODE_ENV === 'production') {
+      const result = path;
+      console.log('API Config - Returning API path for production:', result);
+      return result;
+    }
+    // In development, we prepend the API base URL
     const result = `${API_BASE_URL}${path}`;
-    console.log('API Config - Returning absolute path:', result);
+    console.log('API Config - Returning API path for development:', result);
     return result;
   }
   
-  // Otherwise, prepend the base URL and a slash
-  const result = `${API_BASE_URL}/${path}`;
-  console.log('API Config - Returning relative path:', result);
+  // For non-API routes, prepend the base URL
+  const result = `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+  console.log('API Config - Returning non-API path:', result);
   return result;
 }

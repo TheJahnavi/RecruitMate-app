@@ -18,6 +18,7 @@ import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import NotificationsPage from "./pages/NotificationsPage";
 import TestPage from "./pages/TestPage";
+import TestDNSFix from "./pages/TestDNSFix";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import HealthCheck from "./pages/HealthCheck";
 
@@ -125,6 +126,23 @@ function Router() {
       </Route>
       <Route path="/signup" component={Signup} />
       <Route path="/register" component={Signup} />
+      
+      {/* Test routes */}
+      <Route path="/test" component={() => (
+        <Layout>
+          <TestPage />
+        </Layout>
+      )} />
+      
+      {/* DNS Fix Test Route */}
+      <Route path="/test-dns-fix" component={() => (
+        <Layout>
+          <TestDNSFix />
+        </Layout>
+      )} />
+      
+      {/* Health check route */}
+      <Route path="/health" component={HealthCheck} />
       
       {/* Protected routes - Super Admin */}
       <Route path="/super-admin/dashboard" component={() => {
@@ -248,16 +266,6 @@ function Router() {
           <NotificationsPage />
         </Layout>
       )} />
-      
-      {/* Test route */}
-      <Route path="/test" component={() => (
-        <Layout>
-          <TestPage />
-        </Layout>
-      )} />
-      
-      {/* Health check route */}
-      <Route path="/health" component={HealthCheck} />
       
       {/* Redirect all other routes to landing page */}
       <Route>

@@ -57,6 +57,10 @@ export default function Landing() {
                 <Button variant="outline" size="lg" asChild data-testid="free-trial-button">
                   <a href="/signup">Try for Free</a>
                 </Button>
+                {/* Test link for DNS fix verification */}
+                <Button variant="outline" size="lg" asChild>
+                  <a href="/test-dns-fix">Test DNS Fix</a>
+                </Button>
               </div>
             </div>
             <div className="relative">
