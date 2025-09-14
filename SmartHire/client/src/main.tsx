@@ -16,5 +16,5 @@ if (!rootElement) {
   createRoot(rootElement).render(<App />);
 }
 
-// Duplicate configuration resolution applied
-console.log('Vercel duplicate configuration resolution applied');
+// Git structure fix applied
+console.log('Vercel Git repository structure fix applied');
