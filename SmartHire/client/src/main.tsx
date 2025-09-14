@@ -15,3 +15,6 @@ if (!rootElement) {
   console.log('Root element found, rendering app...');
   createRoot(rootElement).render(<App />);
 }
+
+// Small change to trigger deployment
+console.log('Vercel deployment fix applied');
