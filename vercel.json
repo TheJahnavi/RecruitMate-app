@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "client/package.json",
+      "src": "SmartHire/client/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
@@ -11,7 +11,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/client/dist/index.html"
+      "destination": "/SmartHire/client/dist/index.html"
     }
   ]
 }
