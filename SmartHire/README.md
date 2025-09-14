@@ -58,6 +58,10 @@ npm run dev:demo
 
 ### Deployment to Vercel
 
+There are two ways to deploy to Vercel depending on your project settings:
+
+#### Option 1: Root Directory Set to Project Root (/)
+
 1. Push your code to a GitHub repository
 2. Connect the repository to Vercel
 3. Configure the project with these settings:
@@ -71,7 +75,24 @@ npm run dev:demo
    SESSION_SECRET=your_production_session_secret
    ```
 
-For detailed Vercel deployment instructions, see [VERCEL_DEPLOYMENT_README.md](VERCEL_DEPLOYMENT_README.md).
+#### Option 2: Root Directory Set to Client (/client)
+
+1. Push your code to a GitHub repository
+2. Connect the repository to Vercel
+3. Configure the project with these settings:
+   - Build Command: `npm install && npm run build`
+   - Output Directory: `dist`
+   - Root Directory: `client`
+4. Add environment variables in Vercel project settings:
+   ```
+   NODE_ENV=production
+   DATABASE_URL=your_production_database_url
+   SESSION_SECRET=your_production_session_secret
+   ```
+
+For detailed Vercel deployment instructions, see:
+- [VERCEL_DEPLOYMENT_README.md](VERCEL_DEPLOYMENT_README.md) for project root deployment
+- [VERCEL_DEPLOYMENT_CLIENT_ROOT.md](VERCEL_DEPLOYMENT_CLIENT_ROOT.md) for client root deployment
 
 ## Project Structure
 
@@ -129,6 +150,7 @@ SmartHire/
 1. Check browser console for JavaScript errors
 2. Verify that all required files are present in the build output
 3. Ensure environment variables are correctly configured
+4. Check vercel.json configuration matches your deployment settings
 
 ### API Connection Issues
 1. Verify database connection settings
@@ -148,4 +170,7 @@ For issues with the application, please check:
 3. Network tab for failed API requests
 4. Environment variable configuration
 
-For Vercel deployment issues, refer to [VERCEL_DEPLOYMENT_README.md](VERCEL_DEPLOYMENT_README.md) and [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md).
+For Vercel deployment issues, refer to:
+- [VERCEL_DEPLOYMENT_README.md](VERCEL_DEPLOYMENT_README.md) for project root deployment
+- [VERCEL_DEPLOYMENT_CLIENT_ROOT.md](VERCEL_DEPLOYMENT_CLIENT_ROOT.md) for client root deployment
+- [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) for general deployment checklist
