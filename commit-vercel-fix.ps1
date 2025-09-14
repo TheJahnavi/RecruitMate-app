@@ -1,6 +1,6 @@
-# Commit and push the Vercel SPA fix changes
-git add SmartHire/client/vite.config.ts
-git add SmartHire/client/public/_redirects
-git add VERCEL_SPA_FIX.md
-git commit -m "Fix Vercel SPA deployment: Update build output directory and add _redirects for proper routing"
+# Commit and push the vercel.json fix
+git config --global user.name "Chandana Konduru"
+git config --global user.email "chandanasree000@gmail.com"
+git add vercel.json
+git commit -m "Fix Vercel SPA routing configuration for login/signup pages"
 git push origin master

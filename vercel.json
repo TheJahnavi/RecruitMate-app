@@ -4,7 +4,7 @@
       "src": "SmartHire/client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "cd SmartHire/client && npm run build",
+        "buildCommand": "cd SmartHire/client && npm install && npm run build",
         "outputDirectory": "SmartHire/client/dist"
       }
     }
@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/SmartHire/client/dist/index.html"
     }
   ]
 }
