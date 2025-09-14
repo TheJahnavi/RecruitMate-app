@@ -4,14 +4,14 @@
       "src": "SmartHire/client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "SmartHire/client/dist"
+        "distDir": "dist"
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/SmartHire/client/dist/index.html"
+      "dest": "/dist/index.html"
     }
   ]
 }
