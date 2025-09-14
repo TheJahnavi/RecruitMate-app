@@ -2,6 +2,8 @@
 
 SmartHire is a comprehensive hiring platform that streamlines the recruitment process with AI-powered features for resume parsing, candidate matching, and interview question generation.
 
+<!-- Last updated: September 14, 2025 - Deployment fix for Vercel -->
+
 ## Features
 
 - **Multi-role Access**: Super Admin, Company Admin, and HR dashboards
