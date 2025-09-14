@@ -8,7 +8,7 @@
     "dev:server": "cross-env NODE_ENV=development node --max-old-space-size=4096 --no-warnings=DEP0060 tsx server/index.ts",
     "dev:client": "cd client && vite --config vite.config.ts",
     "dev:demo": "cross-env NODE_ENV=development concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "build": "cd client && npm run build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build": "cd client && npm install && npm run build",
     "build:client": "cd client && npm run build",
     "start": "cross-env NODE_ENV=production node dist/index.js",
     "check": "tsc",
