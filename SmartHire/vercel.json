@@ -1,11 +1,12 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "client/package.json",
-      "use": "@vercel/static-build",
+      "use": "@vercel/node",
       "config": {
-        "distDir": "dist"
+        "buildCommand": "cd client && npm install && npm run build",
+        "outputDirectory": "client/dist",
+        "includeFiles": ["client/**"]
       }
     }
   ],
@@ -20,13 +21,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "dest": "/client/dist/$1"
     }
   ]
 }
