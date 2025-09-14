@@ -30,7 +30,7 @@ SmartHire/
 
 #### 3. vercel.json
 - Configured for monorepo structure
-- Separate builds for client and server
+- Uses `@vercel/static-build` for client and `@vercel/node` for server
 - Proper routing for API endpoints and static files
 
 #### 4. client/vite.config.ts
@@ -42,7 +42,7 @@ SmartHire/
 ### 1. Commit and Push Changes
 ```bash
 git add .
-git commit -m "Fix Vercel deployment configuration"
+git commit -m "Fix Vercel deployment configuration for static file serving"
 git push origin master
 ```
 
@@ -91,11 +91,12 @@ SESSION_SECRET=your_production_session_secret
 3. Ensure Vercel project settings match the configuration above
 4. Check Vercel logs for specific error messages
 
-### If Application Shows Blank Page
+### If Application Shows Blank Page or 404 Error
 1. Check browser console for JavaScript errors
 2. Verify `client/dist` contains `index.html` and static assets
 3. Confirm routing in vercel.json is correct
 4. Ensure vite.config.ts has correct base path
+5. Check that the routes in vercel.json properly map to the built files
 
 ### Common Issues and Solutions
 - **Missing dependencies**: Ensure all dependencies are in package.json
@@ -120,3 +121,7 @@ cd ..
 ```
 
 This should complete without errors and create the dist directory with built assets.
+
+## Recent Changes (September 13, 2025)
+
+Updated vercel.json to use `@vercel/static-build` for the client build process instead of `@vercel/node`. This change should resolve the 404 NOT_FOUND error by properly serving static files from the client/dist directory.
