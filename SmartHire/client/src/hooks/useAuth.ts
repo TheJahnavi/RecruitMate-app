@@ -43,7 +43,7 @@ const DEMO_USERS = {
     companyId: 1,
     accountStatus: "active",
   },
-} as Record<string, User>;
+} as Record<string, any>;
 
 export function useAuth() {
   // Check if we're in demo mode by looking for a special header or environment variable
@@ -62,7 +62,7 @@ export function useAuth() {
         console.log('Demo mode: Checking demo user', { demoUserEmail });
         if (demoUserEmail && DEMO_USERS[demoUserEmail]) {
           console.log('Demo mode: Returning demo user data');
-          return DEMO_USERS[demoUserEmail];
+          return DEMO_USERS[demoUserEmail] as User;
         }
         // If no demo user is set, return null (not authenticated)
         console.log('Demo mode: No valid demo user found');

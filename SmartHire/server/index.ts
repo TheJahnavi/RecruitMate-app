@@ -13,7 +13,8 @@ app.use((req, res, next) => {
   const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:5174',
-    'http://192.168.194.1:5174'
+    'http://192.168.194.1:5174',
+    'https://chandanasgit-recruit-mate-app.vercel.app'
   ];
   const origin = req.headers.origin;
   if (origin && allowedOrigins.includes(origin)) {
@@ -82,7 +83,7 @@ app.get('/', (req, res) => {
   const logMemoryUsage = () => {
     const used = process.memoryUsage();
     const usage = Object.keys(used).map(key => 
-      `${key}: ${Math.round((used[key] / 1024 / 1024) * 100) / 100} MB`
+      `${key}: ${Math.round((used[key as keyof NodeJS.MemoryUsage] / 1024 / 1024) * 100) / 100} MB`
     ).join(', ');
     log(`Memory usage: ${usage}`);
   };
@@ -135,7 +136,7 @@ app.get('/', (req, res) => {
   });
   
   // Handle errors more gracefully
-  server.on('error', (err) => {
+  server.on('error', (err: any) => {
     if (err.message.includes('ENOTSUP')) {
       log(`Port ${port} not supported on this system, trying alternative approach...`);
       // Try with localhost only
@@ -159,7 +160,7 @@ app.get('/', (req, res) => {
           log(`Server running on port ${attemptPort}`);
         });
         
-        tryServer.on('error', (tryErr) => {
+        tryServer.on('error', (tryErr: any) => {
           if (tryErr.code === 'EADDRINUSE') {
             attempts++;
             attemptPort++;

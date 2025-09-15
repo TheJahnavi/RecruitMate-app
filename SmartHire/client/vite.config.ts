@@ -32,5 +32,5 @@ export default defineConfig({
     },
   },
   // Add base path for Vercel deployments
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? './' : '/',
 });
